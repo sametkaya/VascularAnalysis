@@ -52,6 +52,8 @@ def histogramGlobalEqualize(imgPath):
     output1_B = cv.equalizeHist(B)
     img = cv.merge((output1_R, output1_G, output1_B))
     return img
+
+
 def histogramLocalEqualize(imgPath):
     img = cv.imread(imgPath)
     clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
