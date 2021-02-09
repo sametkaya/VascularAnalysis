@@ -10,33 +10,33 @@ import cv2 as cv
 
 
 def filterAll(func,imageDictionary):
-    filteredImageList = {}
-    if bool(imageDictionary):
-        fileName=list(imageDictionary.keys())[0]
-        filePath=list(imageDictionary.values())[0]
-        folterPath=filePath.replace(fileName,"")
-        folterPath=VAImage.createFolder(folterPath)
-    else:
-        return filteredImageList
+    # filteredImageList = {}
+    # if bool(imageDictionary):
+    #     fileName=list(imageDictionary.keys())[0]
+    #     filePath=list(imageDictionary.values())[0]
+    #     folterPath=filePath.replace(fileName,"")
+    #     folterPath=VAImage.createFolder(folterPath)
+    # else:
+    #     return filteredImageList
     for imageName, imagePath in imageDictionary.items():
         image = func(imagePath)
         imagePath=VAImage.saveImage(image, folterPath, imageName )
-        filteredImageList[imageName] = imagePath
-    return filteredImageList
+        # filteredImageList[imageName] = imagePath
+    # return filteredImageList
 def filterAll(func,imageDictionary,*params):
-    filteredImageList = {}
-    if bool(imageDictionary):
-        fileName=list(imageDictionary.keys())[0]
-        filePath=list(imageDictionary.values())[0]
-        folterPath=filePath.replace(fileName,"")
-        folterPath=VAImage.createFolder(folterPath)
-    else:
-        return filteredImageList
+    #filteredImageList = {}
+    #if bool(imageDictionary):
+    #    fileName=list(imageDictionary.keys())[0]
+    #    filePath=list(imageDictionary.values())[0]
+    #     folterPath = filePath.replace(fileName,"")
+    #     folterPath=VAImage.createFolder(folterPath)
+    # else:
+    #     return filteredImageList
     for imageName, imagePath in imageDictionary.items():
         image = func(imagePath,*params)
-        imagePath=VAImage.saveImage(image, folterPath, imageName )
-        filteredImageList[imageName] = imagePath
-    return filteredImageList
+        imagePath=VAImage.saveImage(image, folterPath, imageName)
+        #filteredImageList[imageName] = imagePath
+    #return filteredImageList
 
 def rgbToGray(imgPath):
     img = cv.imread(imgPath)
@@ -83,11 +83,11 @@ def adaptiveGaussianTreshold(imgPath,*params):
     R, G, B = cv.split(img)
     size=params[0]
     blur_R = cv.medianBlur(R, size)
-    output1_R = cv.adaptiveThreshold(blur_R, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,cv.THRESH_OTSU, size, 2)
+    output1_R = cv.adaptiveThreshold(blur_R, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C,cv.ADAPTIVE_THRESH_GAUSSIAN_C, size, 2)
     blur_G = cv.medianBlur(G, size)
-    output1_G = cv.adaptiveThreshold(blur_G, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_OTSU,size, 2)
+    output1_G = cv.adaptiveThreshold(blur_G, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.ADAPTIVE_THRESH_GAUSSIAN_C,size, 2)
     blur_B = cv.medianBlur(B, size)
-    output1_B = cv.adaptiveThreshold(blur_B, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_OTSU, size, 2)
+    output1_B = cv.adaptiveThreshold(blur_B, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.ADAPTIVE_THRESH_GAUSSIAN_C, size, 2)
     img = cv.merge((output1_R, output1_G, output1_B))
     return img
 def adaptiveMedianFilter(imgPath,*params):

@@ -10,7 +10,7 @@ from MainForm import MainForm
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    wdgt_mainForm1 = MainForm()
-    wdgt_mainForm1.show()
+    form1 = MainForm()
+    form1.show()
 
     sys.exit(app.exec_())

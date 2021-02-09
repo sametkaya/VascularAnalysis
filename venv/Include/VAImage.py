@@ -28,13 +28,28 @@ def copyImage(sourceImagePath,destinationImagPath):
     img=cv.imread(sourceImagePath)
     io.imsave(destinationImagPath,img)
     return destinationImagPath
-def createFolder(folderPath,additionFolter="VAF_Images"):
+def createFolder(folderPath,additionFolter):
     folderPath=removeLastSlash(folderPath)
     if not folderPath.endswith(additionFolter):
         folderPath = os.path.join(folderPath, additionFolter)
     if not os.path.exists(folderPath):
         os.makedirs(folderPath)
     return folderPath
+def findCountOfDirectoryStartWithName(folderPath, name):
+    if not os.path.exists(folderPath):
+        return -1
+    count =0
+    for path in os.listdir(folderPath):
+        if os.path.isdir(path):
+            fName=os.path.basename(os.path.dirname(path))
+            if path.startswith(name):
+                count+=1
+
+    return count
+
+
+    return len([name for name in os.listdir(folderPath) if os.path.isdir(os.path.join(folderPath, folderName))])
+
 def deleteAllInFolder(folderPath):
     if not os.path.exists(folderPath):
         return
