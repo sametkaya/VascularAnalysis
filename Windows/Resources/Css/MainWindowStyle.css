@@ -1,0 +1,66 @@
+*{
+	border: none;
+	background-color:transparent;
+	background: transparent;
+	padding:0;
+	margin:0;
+	color:#fff;
+}
+
+#QMainWindow{
+		
+		frameless: true;
+		transluscentBg: true;
+		background-color:transparent;
+		background: transparent;
+
+}
+
+#QMainWindow navigation{
+					minimize:"pbtn_minimize";
+					close: "pbtn_exit";
+					
+}
+
+#centralwidget{
+	background-color:#1f232a;
+}
+#wdgt_leftMenuSubContainer{
+	background-color:#16191d;
+}
+#wdgt_leftMenuSubContainer QPushButton{
+	text-align: left;
+	padding:5px 10px;
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+#frm_leftToolsContents_Navigator{
+	background-color:#16191d;
+	border-radius:10px;
+}
+#wgtstck_leftToolsContents{
+	background-color:#16191d;
+	border-radius:10px;
+}
+#frm_app_control{
+	background-color:#16191d;
+	border-radius:10px;
+}
+#frm_app_title{
+	background-color:#16191d;
+	border-radius:10px;
+}
+
+#frm_app_logo{
+	background-color:#16191d;
+	border-radius:10px;
+}
+#frm_status_message{
+	background-color:#16191d;
+	border-radius:10px;
+}
+
+#frm_status_label{
+	background-color:#16191d;
+	border-radius:10px;
+}
